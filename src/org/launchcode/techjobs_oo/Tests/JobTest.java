@@ -67,6 +67,24 @@ public class JobTest {
 
       assertFalse(job1.equals(job2));
     }
+    @Test
+    public void testToStringReturnsBlankLineBeforeAndAfter (){
+       String job =  job_test.toString();
+        String expectedJob = "\n"+ job_test + "\n";
+        assertEquals(expectedJob, job);
+
+    }
+    @Test
+    public void testStringShouldContainLabelForEachField(){
+       String job = job_test.toString();
+       String expectedJob = "\nID: "+ job_test.getId()+"\nName: " +
+               job_test.getName()+"\nEmployer: "+ job_test.getEmployer()+ "\nLocation: "+
+               job_test.getLocation()+ "\nPosition Type: "+ job_test.getPositionType()+ "\nCore Competency: "+
+               job_test.getCoreCompetency()+ "\n";
+
+       assertEquals(expectedJob, job);
+
+    }
 
 
 

@@ -1,8 +1,9 @@
 package org.launchcode.techjobs_oo;
 
+import java.lang.reflect.Field;
 import java.util.Objects;
 
-public class Job {
+public class Job  {
 
     private int id;
     private static int nextId = 1;
@@ -21,7 +22,7 @@ public class Job {
 
     //Constructor initializing all fields and calling first constructor to initialize the id field.
 
-    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreConmpetency ) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency ) {
         this();
         this.name = name;
         this.employer = employer;
@@ -80,15 +81,24 @@ public class Job {
 
     @Override
     public String toString() {
-        return "Job{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", employer=" + employer +
-                ", location=" + location +
-                ", positionType=" + positionType +
-                ", coreCompetency=" + coreCompetency +
-                '}';
+//        Job myJob = new Job();
+//        String message = "Data Not Available";
+//        Field[] fields = myJob.getClass().getDeclaredFields();
+//        for (Field f : fields) {
+//            if (f == null) {
+//                return message;
+//            }
+//        }
+        return
+                " \nID: " + id +
+                        " \nName: " + name +
+                        " \nEmployer: " + employer +
+                        " \nLocation: " + location +
+                        " \nPosition Type: " + positionType +
+                        " \nCore Competency: " + coreCompetency + "\n";
     }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -105,22 +115,6 @@ public class Job {
         return getId();
     }
 
-    //    @Override
-//    public String toString() {
-//        return name;
-//    }
-//
-//    @Override
-//    public boolean equals(Object o) {  // Two objects are equal if they have the same id.
-//        if (this == o) return true;
-//        if (!(o instanceof Job)) return false;
-//        Job job = (Job) o;
-//        return getId() ==job.getId();
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(getId());
-//    }
+
 
 }
