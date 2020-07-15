@@ -21,7 +21,7 @@ public class Job {
 
     //Constructor initializing all fields and calling first constructor to initialize the id field.
 
-    public Job( String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreConmpetency ) {
         this();
         this.name = name;
         this.employer = employer;
@@ -29,6 +29,8 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
+
+
 
 
     // Getters and Setters:
@@ -78,28 +80,47 @@ public class Job {
 
     @Override
     public String toString() {
-        return name;
+        return "Job{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", employer=" + employer +
+                ", location=" + location +
+                ", positionType=" + positionType +
+                ", coreCompetency=" + coreCompetency +
+                '}';
     }
 
     @Override
-    public boolean equals(Object o) {  // Two objects are equal if they have the same id.
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Job)) return false;
+
         Job job = (Job) o;
-        return getId() ==job.getId();
+
+        return getId() == job.getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return getId();
     }
-// TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
-    //  other five fields. The second constructor should also call the first in order to initialize
-    //  the 'id' field.
 
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
+    //    @Override
+//    public String toString() {
+//        return name;
+//    }
+//
+//    @Override
+//    public boolean equals(Object o) {  // Two objects are equal if they have the same id.
+//        if (this == o) return true;
+//        if (!(o instanceof Job)) return false;
+//        Job job = (Job) o;
+//        return getId() ==job.getId();
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(getId());
+//    }
 
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
 }
