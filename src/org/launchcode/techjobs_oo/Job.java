@@ -8,6 +8,7 @@ public class Job  {
     private int id;
     private static int nextId = 1;
 
+
     private String name;
     private Employer employer;
     private Location location;
@@ -79,24 +80,43 @@ public class Job  {
         return coreCompetency;
     }
 
+//    @Override
+//    public String toString() {
+//        String message = "Data Not Available";
+//
+//             name == null ? message : name,
+//             employer == null ? message : employer,
+//             location == null ? message : location,
+//             positionType == null ? message : positionType,
+//             coreCompetency == null ? message : coreCompetency);}
+
+
     @Override
     public String toString() {
-//        Job myJob = new Job();
-//        String message = "Data Not Available";
-//        Field[] fields = myJob.getClass().getDeclaredFields();
-//        for (Field f : fields) {
-//            if (f == null) {
-//                return message;
-//            }
-//        }
+
+        String message = "Data Not Available";
+
+
+        String aName = (getName()== null ? message : getName());
+        String aEmployer = (getEmployer().getValue() == "" ? message : getEmployer().getValue());
+        String aLocation = (getLocation().getValue() == "" ? message : getLocation().getValue());
+        String aPositionType = (getPositionType().getValue() == "" ? message : getPositionType().getValue());
+        String aCoreCompetency = (getCoreCompetency().getValue() == "" ? message : getCoreCompetency().getValue());
+
         return
-                " \nID: " + id +
-                        " \nName: " + name +
-                        " \nEmployer: " + employer +
-                        " \nLocation: " + location +
-                        " \nPosition Type: " + positionType +
-                        " \nCore Competency: " + coreCompetency + "\n";
+                "\nID: " + id +
+                        "\nName: " + aName +
+                        "\nEmployer: " + aEmployer +
+                        "\nLocation: " + aLocation +
+                        "\nPosition Type: " + aPositionType +
+                        "\nCore Competency: " + aCoreCompetency + "\n";
+
     }
+
+
+
+
+
 
 
 

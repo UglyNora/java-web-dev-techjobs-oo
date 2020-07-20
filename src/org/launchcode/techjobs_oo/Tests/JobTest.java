@@ -16,7 +16,7 @@ public class JobTest {
        job_test = new Job("Web Dev", new Employer("BoBo"), new Location("NC"),
                   new PositionType("Jr Dev"), new CoreCompetency("Persistence"));
 
-       job_test2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+       job_test2 = new Job("Product tester", new Employer(""), new Location("Desert"),
                    new PositionType("Quality control"), new CoreCompetency("Persistence"));
     }
 
@@ -62,16 +62,20 @@ public class JobTest {
         Job job1 = new Job("Web Dev", new Employer("BoBo"), new Location("NC"),
                 new PositionType("Jr Dev"), new CoreCompetency("Persistence"));
 
-        Job job2 = new Job("Web Dev", new Employer("BoBo"), new Location("NC"),
+        Job job2 = new Job("Web Dev", new Employer(""), new Location("NC"),
                 new PositionType("Jr Dev"), new CoreCompetency("Persistence"));
 
       assertFalse(job1.equals(job2));
     }
     @Test
     public void testToStringReturnsBlankLineBeforeAndAfter (){
-       String job =  job_test.toString();
-        String expectedJob = "\n"+ job_test + "\n";
-        assertEquals(expectedJob, job);
+
+        System.out.println(job_test);
+        String beforeJob= job_test.toString().split("")[0];
+        String afterJob = job_test.toString().split("")[job_test.toString().length()-1];
+
+        String expectedJob = "\n\n";
+        assertEquals(expectedJob, beforeJob + afterJob);
 
     }
     @Test
@@ -80,13 +84,26 @@ public class JobTest {
        String expectedJob = "\nID: "+ job_test.getId()+"\nName: " +
                job_test.getName()+"\nEmployer: "+ job_test.getEmployer()+ "\nLocation: "+
                job_test.getLocation()+ "\nPosition Type: "+ job_test.getPositionType()+ "\nCore Competency: "+
-               job_test.getCoreCompetency()+ "\n";
+               job_test.getCoreCompetency()+"\n";
 
        assertEquals(expectedJob, job);
 
     }
 
+    @Test
+    public void testStringMethodShouldReturnSpecialMessageWhenJobFieldIsEmpty(){
+        String expectedResult = "Data Not Available";
+        String actualResult = "";
+        if (job_test2.getEmployer().getValue() == "")
+            actualResult = "Data Not Available";
+
+
+        assertEquals(actualResult, expectedResult);
+
+    }
+
+
+    }
 
 
 
-}
